@@ -6,5 +6,6 @@ format such as
     Online Converter Free: https://onlineconvertfree.com/convert-format/dot-to-png/
     Convert IO: https://convertio.co/dot-png/
 ie,
+    GraphViz Installation: https://graphviz.org/download/
     dot -Tpng -O graphvisual.dot
 Then, the image of the minimum spanning tree can be visualized.
