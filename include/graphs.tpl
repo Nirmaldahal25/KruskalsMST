@@ -17,7 +17,7 @@ void Graph<T>::display()
 }
 
 template <typename T>
-decltype(auto) Graph<T>::minimumSpanningTree()
+const auto& Graph<T>::minimumSpanningTree()
 {
     std::sort(this->graph.begin(),this->graph.end(),[](auto edge1, auto edge2)->bool{
         return edge1.weight < edge2.weight;
@@ -38,7 +38,7 @@ decltype(auto) Graph<T>::minimumSpanningTree()
             this->makeUnion(a,b,parent);
         }
     }
-    return std::move(result);
+    return result;
 }
 
 template <typename T>
@@ -59,4 +59,20 @@ template <typename T>
 void Graph<T>::makeUnion(const T& a, const T& b, std::unordered_map<T,T>& parent)
 {
     parent[a] = parent[b];
+}
+
+template <typename T>
+void Graph<T>::makeGraph()
+{
+    grapheditor edit;
+    edit.makeFilepointer("graphvisual.dot");
+    for(auto&i : result)
+    {
+        edit.addEdge(std::to_string(i.src).c_str(),std::to_string(i.dest).c_str(),i.weight);
+    }
+    for(auto& i : vertices)
+    {
+        edit.addVertex(std::to_string(i).c_str());
+    }
+    edit.close();
 }

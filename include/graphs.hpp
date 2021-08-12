@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <unordered_map>
 
+#include <grapheditor.hpp>
+
 template <typename T>
 struct Edges{
     T src;  
@@ -37,8 +39,11 @@ class Graph
         /* show the spanning tree formed*/ 
         void display();
 
+        /* make a dot text */
+        void makeGraph();
+
         /* returns the edges of the minium spanning tree */
-        decltype(auto) minimumSpanningTree();
+        const auto& minimumSpanningTree();
 
     private:
         std::vector<Edges<T>> graph;
@@ -50,7 +55,7 @@ class Graph
 
         //set parent of parameter 2 to parent of paramter 1 
         void makeUnion(const T&, const T&, std::unordered_map<T,T>&);
-    
 };
 #include "graphs.tpl"
+
 #endif

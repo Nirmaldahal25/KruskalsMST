@@ -8,7 +8,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 include_directories(./include)
 
-set(HEADER_FILE ./include/graphs.hpp ./include/graphs.tpl)
-# set(SOURCE_FILE ./graphs.cpp)
+set(HEADER_FILE ./include/graphs.hpp ./include/graphs.tpl ./include/grapheditor.hpp)
 
-add_executable(graph main.cpp ${HEADER_FILE} ${SOURCE_FILE})
+add_executable(${PROJECT_NAME} main.cpp ${HEADER_FILE} ${SOURCE_FILE})

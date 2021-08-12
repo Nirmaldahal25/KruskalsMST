@@ -1,7 +1,6 @@
 #include "graphs.hpp"
+#include "grapheditor.hpp"
 
-/* spanning tree for undirected graph" */
-/* supports char and integer values as Nodes */
 int main()
 {
     Graph<int> graph;
@@ -19,10 +18,16 @@ int main()
     graph.addEdge(6, 7, 1);
     graph.addEdge(6, 8, 6);
     graph.addEdge(7, 8, 7);
-    auto tree = graph.minimumSpanningTree();
-    graph.display();
-    for(const auto & i: tree)
+    std::cout<<"node of spanning tree"<<std::endl;
+    for(const auto & i: graph.minimumSpanningTree())
     {
-        std::cout<<i.src<<' '<<i.dest<<'\n';
+        std::cout<<i.src<<' '<<i.dest<<' '<<i.weight<<'\n';
     }
+
+    std::cout<<"All the Edges of Graph"<<std::endl;
+    graph.display();
+
+    std::cout<<"Edges of Spanning Tree Can be Viewes using graphvisual.dot file created in the folder"<<std::endl;
+    graph.makeGraph();
+   
 }
