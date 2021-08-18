@@ -21,13 +21,13 @@ int main()
     std::cout<<"node of spanning tree"<<std::endl;
     for(const auto & i: graph.minimumSpanningTree())
     {
-        std::cout<<i.src<<' '<<i.dest<<' '<<i.weight<<'\n';
+        std::cout<<"\t({"<<i.src<<' '<<i.dest<<"},  "<<i.weight<<")\n";
     }
-
+    std::cout<<std::endl;
     std::cout<<"All the Edges of Graph"<<std::endl;
     graph.display();
 
-    std::cout<<"Edges of Spanning Tree Can be Viewes using graphvisual.dot file created in the folder"<<std::endl;
+    std::cout<<"Edges of Spanning Tree Can be Viewed using graphvisual.dot file"<<std::endl;
     graph.makeGraph();
    
 }

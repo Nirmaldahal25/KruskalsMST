@@ -33,7 +33,7 @@ template <typename T>
 class Graph
 {
     public:
-        /* add edge from vertex1 to vertex2 with with weight(int)]*/
+        /* add edge from vertex1 to vertex2 with with weight(int)*/
         void addEdge(T vertex, T vertex2, int);
 
         /* show the spanning tree formed*/ 

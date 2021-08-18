@@ -11,7 +11,7 @@ void Graph<T>::display()
 {
     for(const auto& i: graph)
     {
-        std::cout<<i.src<<' '<<i.dest<<' '<<i.weight<<'\n';
+        std::cout<<"\t({"<<i.src<<' '<<i.dest<<"},  "<<i.weight<<")\n";
     }
     std::cout<<std::endl;
 }
