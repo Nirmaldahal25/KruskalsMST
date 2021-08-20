@@ -62,10 +62,10 @@ void Graph<T>::makeUnion(const T& a, const T& b, std::unordered_map<T,T>& parent
 }
 
 template <typename T>
-void Graph<T>::makeGraph()
+void Graph<T>::makeGraph(std::string str)
 {
     grapheditor edit;
-    edit.makeFilepointer("graphvisual.dot");
+    edit.makeFilepointer(str.c_str());
     for(auto&i : result)
     {
         edit.addEdge(std::to_string(i.src).c_str(),std::to_string(i.dest).c_str(),i.weight);
@@ -73,6 +73,22 @@ void Graph<T>::makeGraph()
     for(auto& i : vertices)
     {
         edit.addVertex(std::to_string(i).c_str());
+    }
+    edit.close();
+}
+
+template <>
+void Graph<char>::makeGraph(std::string str)
+{
+    grapheditor edit;
+    edit.makeFilepointer(str.c_str());
+    for(auto&i : result)
+    {
+        edit.addEdge(i.src,i.dest,i.weight);
+    }
+    for(auto& i : vertices)
+    {
+        edit.addVertex(i);
     }
     edit.close();
 }

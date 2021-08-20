@@ -40,7 +40,7 @@ class Graph
         void display();
 
         /* make a dot text */
-        void makeGraph();
+        void makeGraph(std::string str);
 
         /* returns the edges of the minium spanning tree */
         const auto& minimumSpanningTree();

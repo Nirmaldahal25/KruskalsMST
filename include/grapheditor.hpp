@@ -22,10 +22,21 @@ struct grapheditor
         fprintf(fp.get(),"%s\n\t",vertex);
     }
 
+     void addVertex(char vertex)
+    {
+        fprintf(fp.get(),"%c\n\t",vertex);
+    }
+
     void addEdge(const char* vertex1, const char* vertex2, int weight)
     {
         std::string wt = std::to_string(weight);
         fprintf(fp.get(),"%s -- %s [label = \"%s\"]\n\t",vertex1,vertex2,wt.c_str());
+    }
+
+     void addEdge(char vertex1, char vertex2, int weight)
+    {
+        std::string wt = std::to_string(weight);
+        fprintf(fp.get(),"%c -- %c [label = \"%s\"]\n\t",vertex1,vertex2,wt.c_str());
     }
 
     void close()
