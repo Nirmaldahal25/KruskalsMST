@@ -21,14 +21,14 @@ const auto& Graph<T>::minimumSpanningTree()
 {
     std::sort(this->graph.begin(),this->graph.end(),[](auto edge1, auto edge2)->bool{
         return edge1.weight < edge2.weight;
-    });
+    }); // For G(V,E)  Time Complexity: ElogE
     result.reserve(vertices.size()-1);
     std::unordered_map<T,T> parent;
-    for(auto i : vertices)
+    for(auto i : vertices)//V
     {
         parent.insert(std::make_pair<T,T>(std::move(i),std::move(i)));
     }
-    for(const auto& i: this->graph)
+    for(const auto& i: this->graph) //ElogV
     {   
         auto a = findParent(i.src,parent);
         auto b = findParent(i.dest,parent);

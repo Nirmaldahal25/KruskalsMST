@@ -73,8 +73,8 @@ void graph3()
 int main()
 {
     graph1();
-    // graph2();
-    // graph3();
+    graph2();
+    graph3();
     
    
 }
