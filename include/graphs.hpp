@@ -10,6 +10,38 @@
 
 #include <grapheditor.hpp>
 
+namespace quicksort
+{
+    template<typename T>
+    int partition(std::vector<T>& arr, int low, int high)
+    {
+        auto pivot = arr[high]; 
+        int i = (low - 1); 
+    
+        for (int j = low; j <= high- 1; j++)
+        {
+            if (arr[j] <= pivot)
+            {
+                i++;  
+                std::swap(arr[i], arr[j]);
+            }
+        }
+        std::swap(arr[i + 1], arr[high]);
+        return (i + 1);
+    }
+
+    template<typename T>
+    void sort(std::vector<T>& arr, int low, int high)
+    {
+        if (low < high)
+        {
+            int pivot = partition(arr, low, high);
+            sort(arr, low, pivot - 1);
+            sort(arr, pivot + 1, high);
+        }
+    }
+};
+
 template <typename T>
 struct Edges{
     T src;  
@@ -23,9 +55,24 @@ struct Edges{
 
     }
 
-    friend bool operator==(const Edges& edge1, const Edges& edge2)
+    friend bool operator==(const Edges<T>& edge1, const Edges<T>& edge2)
     {
         return edge1.src == edge2.src && edge1.dest == edge2.dest;
+    }
+
+    friend bool operator<(const Edges<T>& edge1, const Edges<T>& edge2)
+    {
+        return edge1.weight < edge2.weight;
+    }
+
+    friend bool operator<=(const Edges<T>& edge1, const Edges<T>& edge2)
+    {
+        return edge1.weight <= edge2.weight;
+    }
+    
+    friend bool operator>=(const Edges<T>& edge1, const Edges<T>& edge2)
+    {
+        return edge1.weight >= edge2.weight;
     }
 };
 

@@ -19,9 +19,7 @@ void Graph<T>::display()
 template <typename T>
 const auto& Graph<T>::minimumSpanningTree()
 {
-    std::sort(this->graph.begin(),this->graph.end(),[](auto edge1, auto edge2)->bool{
-        return edge1.weight < edge2.weight;
-    }); // For G(V,E)  Time Complexity: ElogE
+    quicksort::sort(this->graph, 0, this->graph.size()-1);
     result.reserve(vertices.size()-1);
     std::unordered_map<T,T> parent;
     for(auto i : vertices)//V
